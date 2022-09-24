@@ -8,21 +8,21 @@
 
 
 ############################ Config ########################################################################################
-var full_damage_dist_m = 2;# Can vary from aircraft to aircraft depending on how many failure modes it has.
+var full_damage_dist_m = 1.5;# Can vary from aircraft to aircraft depending on how many failure modes it has.
                            # Many modes (like Viggen) ought to have lower number like zero.
                            # Few modes (like F-14) ought to have larger number such as 3.
                            # For assets this should be average radius of the asset.
-var use_hitpoints_instead_of_failure_modes_bool = 1;# mainly used by assets that don't have failure modes.
+var use_hitpoints_instead_of_failure_modes_bool = 0;# mainly used by assets that don't have failure modes.
 var hp_max = 5;# given a direct hit, how much pounds of warhead is needed to kill. Only used if hitpoints is enabled.
-var hitable_by_air_munitions = 0;   # if anti-air can do damage
+var hitable_by_air_munitions = 1;   # if anti-air can do damage
 var hitable_by_cannon = 1;          # if cannon can do damage
 #var hitable_by_ground_munitions = 1;# if anti-ground/marine can do damage
 var is_fleet = 0;  # Is really 7 ships, 3 of which has offensive missiles.
-var rwr_to_screen=0; # for aircraft that do not yet have proper RWR
+var rwr_to_screen=1; # for aircraft that do not yet have proper RWR
 var tacview_supported=0; # For aircraft with tacview support
 var m28_auto=0; # only used by automats
 var mlw_max=2.25; # 
-var auto_flare_caller = 0; # If damage.nas should detect flare releases, or if function is called from somewhere in aircraft
+var auto_flare_caller = 1; # If damage.nas should detect flare releases, or if function is called from somewhere in aircraft
 ############################################################################################################################
 
 var TRUE  = 1;
