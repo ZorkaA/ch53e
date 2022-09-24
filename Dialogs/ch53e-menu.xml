@@ -21,7 +21,72 @@
         </binding>
       </item>
     </menu>
+    <item>
+					<label>Reload chaff/flare</label>
+					<condition>
+						<and>
+							<not-equals>
+								<property>/gear/gear[0]/wow</property>
+								<value>0</value>
+							</not-equals>
+							<less-than>
+								<property>/velocities/groundspeed-kt</property>
+								<value>1</value>
+							</less-than>
+						</and>
+					</condition>
+					<binding>
+						<command>nasal</command>
+						<script>
+							<![CDATA[
+
+							if(getprop("/gear/gear[0]/wow") and getprop("/velocities/groundspeed-kt") <= 1.0){
+								setprop("/ai/submodels/submodel[3]/count", 480);
+			    setprop("/ai/submodels/submodel[4]/count", 480);
+								screen.log.write("480 flares loaded", 1, 1, 1);
+							} else {
+								screen.log.write("Can't load flares while airborne or moving", 1, 1, 1);
+							}
+							]]>
+						</script>
+					</binding>
+				</item>
+				<item>
+				    <label>Toggle Damage</label>
+				    <binding>
+					<command>nasal</command>
+					<script>
+					    <![CDATA[
+					    if (getprop("/gear/gear[0]/wow") and getprop("/velocities/groundspeed-kt") <= 1.0){
+						setprop("/payload/armament/msg/", 1 - getprop("/payload/armament/msg/"));
+						if (getprop("/payload/armament/msg/")) {
+						    screen.log.write("Damage ON", 1, 0, 0);
+						} else {
+						    screen.log.write("Damage OFF", 1, 0, 0);
+						}
+					    } else {
+						screen.log.write("Can't do that while airborne or moving", 1, 1, 1);
+					    }
+					    ]]>
+					</script>
+				    </binding>
+				</item>
+				<item>
+				    <label>IFF/DLINK Settings</label>
+				    <binding>
+						<command>dialog-show</command>
+						<dialog-name>iff</dialog-name>
+				    </binding>
+			</item>
+			<item>
+		<label>Combat event log</label>
+		<binding>
+		    <command>dialog-show</command>
+		    <dialog-name>flightlog</dialog-name>
+		</binding>
+	    </item>
   </default>
 
 </PropertyList>
 
+				
