@@ -80,6 +80,23 @@
         </binding>
       </mod-up>
     </key>
+		
+	<key n="113">
+		<name>q</name>
+		<desc>Trigger flare release</desc>
+		<binding>
+			<command>property-assign</command>
+			<property>/ai/submodels/submodel[78]/flare-release-cmd</property>
+			<value type="bool">true</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>/ai/submodels/submodel[78]/flare-release-cmd</property>
+				<value type="bool">false</value>
+			</binding>
+		</mod-up>
+	</key>
 
     <key n="123">
       <name>{</name>
@@ -98,6 +115,7 @@
         <script>ch53e.engines(1)</script>
       </binding>
     </key>
+	
 
 </PropertyList>
 
